@@ -7,6 +7,12 @@ The goal of this project is to describe, in VHDL, a simple counter from 0 to 99 
 3. The counter has an asynchronous reset (active low) that sets the count back to 0.
 4. The circuit is clocked by the output of a PLL generated from the vendor's IP.
 
+## Block diagram
+
+![Block diagram of the 0 to 99 counter](docs/design_diagram.drawio.png)
+
+The source of the diagram is [design_diagram.drawio](design_diagram.drawio). The PLL that feeds the clock to every block is not shown.
+
 ## Concepts
 
 This project covers the following concepts:
