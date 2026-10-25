@@ -27,7 +27,7 @@ This project covers the following concepts:
 
 ## Technology
 
-* Board: TD112 (developed by Tachyssema Dévelopement), an FPGA module mounted on a carrier board with peripherals and Pmod connectors
+* Board: TD112 (developed by Tachysséma Développement), an FPGA module mounted on a carrier board with peripherals and Pmod connectors
 * FPGA: Lattice Semiconductor CrossLink-NX LIFCL-40-8BG256I
 * Display: Digilent Pmod SSD, 2-digit common-cathode 7-segment display
 * Synthesis: Synopsys Synplify Pro
