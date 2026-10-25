@@ -66,3 +66,31 @@ Even though the 7-segment display has 2 digits, it has the same signals as a sin
 The timing constraints file tells the static timing analyzer the characteristics of the signals it is going to work with. It is used, for example, to know whether the design will meet its setup and hold times; however, it does not directly change the behavior of the described circuit. In other words, a simple enough design can work even if this file is not written correctly.
 
 That said, the constraints are not only used for analysis: synthesis and place & route also use them to decide where to place the logic and how to route it so that the timing requirements are met. In a fast or large design, a wrong or missing constraint can lead to a circuit that fails on the board even though the VHDL is correct.
+
+## USB-JTAG programmer issue
+
+When trying to program the FPGA, Radiant Programmer could not open the USB port of the JTAG adapter (error "Failed to Open FTDI USB port"). The board uses a USB-to-JTAG bridge based on an FTDI chip (FT2232H), and the problem is that, when it is plugged in, Linux automatically loads the `ftdi_sio` kernel module (the generic USB-serial driver) and binds it to the FTDI device, claiming it as a serial port. While that module holds the device, the programmer cannot access it through JTAG.
+
+Temporary workaround (valid until the next reboot or until the system reloads the module): unload the module with
+
+```bash
+sudo rmmod ftdi_sio
+```
+
+Permanent fix: a udev rule that detaches `ftdi_sio` only from the JTAG channel every time the board is plugged in. The FT2232H has two channels: channel A (interface 0) is the JTAG used by Radiant Programmer, and channel B (interface 1) can stay as a regular serial port. Create `/etc/udev/rules.d/99-lattice-ftdi.rules` with:
+
+```
+# Let regular users access the FT2232H (0403:6010) through libusb
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="0403", ATTR{idProduct}=="6010", MODE="0666", GROUP="plugdev"
+
+# Detach ftdi_sio from channel A (interface 0) so it is free for JTAG
+ACTION=="bind", SUBSYSTEM=="usb", DRIVER=="ftdi_sio", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6010", ATTR{bInterfaceNumber}=="00", RUN+="/bin/sh -c 'echo %k > /sys/bus/usb/drivers/ftdi_sio/unbind'"
+```
+
+Then reload the rules and unplug and replug the board:
+
+```bash
+sudo udevadm control --reload-rules
+```
+
+Keep in mind that the rule applies to every FT2232H with the default FTDI IDs, not only to this board, so other devices built on that chip will also lose the serial port on channel A. The `bind` action requires systemd/udev 247 or newer (Ubuntu 22.04 and later).

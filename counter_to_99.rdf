@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RadiantProject version="4.2" radiant="2026.1.0.37.0" title="counter_to_99" device="LIFCL-40-8BG256I" performance_grade="8_High-Performance_1.0V" family_int="je5d00" device_int="je5d30" package_int="CABGA256" operation_int="IND" speed_int="11" default_implementation="counter_to_99_implementation">
+    <Options/>
+    <Implementation title="counter_to_99_implementation" dir="counter_to_99_implementation" description="counter_to_99_implementation" synthesis="synplify" default_strategy="Strategy1">
+        <Options def_top="top" top="top"/>
+        <Source name="pll_100/pll_100.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="source/counter_to_99_implementation/counter_to_9.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="source/counter_to_99_implementation/digit_selector.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="source/counter_to_99_implementation/seven_segment_decoder.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="source/counter_to_99_implementation/prescaler.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="source/counter_to_99_implementation/top.vhd" type="VHDL" type_short="VHDL">
+            <Options top_module="top"/>
+        </Source>
+        <Source name="source/counter_to_99_implementation/counter_to_99.sdc" type="Pre-Synthesis Constraints File" type_short="SDC">
+            <Options module_filename="source/counter_to_99_implementation/top.vhd"/>
+        </Source>
+        <Source name="source/counter_to_99_implementation.xcf" type="Programming Project File" type_short="Programming">
+            <Options/>
+        </Source>
+        <Source name="source/counter_to_99_implementation/counter_to_99.pdc" type="Physical Constraints File" type_short="PDC">
+            <Options/>
+        </Source>
+    </Implementation>
+    <Strategy name="Strategy1" file="counter_to_991.sty"/>
+</RadiantProject>
