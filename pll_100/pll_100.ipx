@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<RadiantModule architecture="je5d00" date="2026 10 21 11:30:31" device="LIFCL-40" device_int="je5d30" display_module="PLL" display_vendor="latticesemi.com" family="LIFCL" gen_platform="Radiant" gen_platform_version="2026.1.0.37.0" generator="ipgen" library="module" module="pll" name="pll_100" operation="Industrial" package="CABGA256" package_int="CABGA256" partnumber="LIFCL-40-8BG256I" source_format="Verilog" speed="8_High-Performance_1.0V" speed_int="11" vendor="latticesemi.com" version="1.9.1">
+ <Package>
+  <File modified="2026 10 21 11:30:31" name="rtl/pll_100_bb.v" type="black_box_verilog"/>
+  <File modified="2026 10 21 11:30:31" name="pll_100.cfg" type="cfg"/>
+  <File modified="2026 10 21 11:30:31" name="misc/pll_100_tmpl.v" type="template_verilog"/>
+  <File modified="2026 10 21 11:30:31" name="misc/pll_100_tmpl.vhd" type="template_vhdl"/>
+  <File modified="2026 10 21 11:30:31" name="rtl/pll_100.v" type="top_level_verilog"/>
+  <File modified="2026 10 21 11:30:31" name="constraints/pll_100.ldc" type="timing_constraints"/>
+  <File modified="2026 10 21 11:30:31" name="testbench/dut_params.v" type="dependency_file"/>
+  <File modified="2026 10 21 11:30:31" name="testbench/dut_inst.v" type="dependency_file"/>
+  <File modified="2026 10 21 11:30:31" name="component.xml" type="IP-XACT_component"/>
+  <File modified="2026 10 21 11:30:31" name="design.xml" type="IP-XACT_design"/>
+  <File modified="2024 04 16 04:53:01" name="testbench/tb_top.v" type="testbench_verilog"/>
+ </Package>
+</RadiantModule>
