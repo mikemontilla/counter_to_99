@@ -1,0 +1,18 @@
+# Radiant build output (regenerated on every synthesis/place & route run)
+/counter_to_99_implementation/
+
+# Radiant session and UI state
+/.recovery
+/.setting.ini
+/.ng_run_manager.ini
+/reportview.xml
+/promote.xml
+/promote.pfl
+/*_tcr.dir/
+/*_tcl.html
+
+# draw.io backups
+*.bkp
+
+# Spanish draft of the README (only the English README.md is published)
+readme_espagnol.md
