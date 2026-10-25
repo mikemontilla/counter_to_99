@@ -18,7 +18,7 @@ As mentioned above, it is not a good idea to generate divided clocks with combin
 
 Another interesting thing about the prescaler is that its bits can be used to get lower-frequency clocks (meant for components outside the FPGA): bit *n* of the counter toggles with a period of 2^(n+1) cycles of the original clock.
 
-I also want to record a mistake I made while coding the prescaler. When the counter reached its maximum count, I raised the `tick` flag to generate the pulse at that moment and reset the counter, but at first I forgot to set `tick` back to `'0'` for the rest of the counts. Because of this, my counter didn't advance at first.
+I also want to record a mistake I made while coding the prescaler. When the counter reached its maximum count, I raised the `tick` flag to generate the pulse at that moment and reset the counter, but at first I forgot to set `tick` back to `'0'` for the rest of the counts. Because of this, my counter didn't seem to advance at first. What actually happened is that, after the first pulse, `second_tick` stayed at `'1'` forever, so the units counter was enabled on every clock cycle and counted at 100 MHz, far too fast for the eye to follow. On the display it looked frozen, but it was really counting too fast.
 
 Original:
 
