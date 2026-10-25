@@ -56,3 +56,7 @@ Using two decade counters chained through the carry bit (the bit that signals th
 ```vhdl
 carry <= '1' when (counter = 9 and enable = '1') else '0';
 ```
+
+## 7-segment display multiplexing
+
+Even though the 7-segment display has 2 digits, it has the same signals as a single-digit one. This is because it has a digit selector that specifies on which digit (left or right) the value currently on the segment pins (a to g) is shown. That is why, to see the full number (tens and units), both the digit being shown and where it is shown (the digit selector) must be switched faster than the human eye can perceive. In this case one of the bits of the prescaler counter (bit 17) was used: it toggles between 1 and 0 fast enough to make both selections at a rate the human eye cannot notice. For more details, see the [Prescaler](#prescaler) section.
