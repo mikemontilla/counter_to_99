@@ -64,3 +64,5 @@ Even though the 7-segment display has 2 digits, it has the same signals as a sin
 ## Timing constraints
 
 The timing constraints file tells the static timing analyzer the characteristics of the signals it is going to work with. It is used, for example, to know whether the design will meet its setup and hold times; however, it does not directly change the behavior of the described circuit. In other words, a simple enough design can work even if this file is not written correctly.
+
+That said, the constraints are not only used for analysis: synthesis and place & route also use them to decide where to place the logic and how to route it so that the timing requirements are met. In a fast or large design, a wrong or missing constraint can lead to a circuit that fails on the board even though the VHDL is correct.
