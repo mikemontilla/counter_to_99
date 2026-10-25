@@ -48,3 +48,11 @@ I also want to show that, for example, bit 17 was used to multiplex the digits o
 ```vhdl
 ms_tick <= counter(17);
 ```
+
+## Cascaded decade counters
+
+Using two decade counters chained through the carry bit (the bit that signals that the counter reached its final count, 9 in this case) lets you design a single component and reuse it. Here it is important that the signal indicating the counter has reached its maximum is a single pulse, one system clock cycle wide, because this pulse is used as the enable of the tens counter. Otherwise, the signal stays high for the whole time the counter sits at its maximum state (1 second in this case), and the tens counter advances once for every clock cycle that goes by during that time. To get this pulse, the carry must be generated from 2 conditions: the counter is at its maximum, and the enable is active (since this enable is normally also expected to be 1 clock cycle wide).
+
+```vhdl
+carry <= '1' when (counter = 9 and enable = '1') else '0';
+```
