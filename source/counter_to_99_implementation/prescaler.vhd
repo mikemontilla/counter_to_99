@@ -14,7 +14,6 @@ end entity;
 architecture rtl of prescaler is
 	-- constants
 	constant SECOND_COUNT: integer := 100_000_000;
-	constant MS_COUNT: integer := 100_000;
 	-- signals
 	signal counter: unsigned(26 downto 0) := (others => '0');
 
@@ -23,6 +22,7 @@ begin
 	begin
 		if reset = '0' then
 			counter <= (others => '0');
+			second_tick <= '0';
 		elsif rising_edge(clock) then
 			if counter =  SECOND_COUNT - 1 then
 				counter <= (others => '0');
