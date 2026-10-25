@@ -11,6 +11,9 @@
 /*_tcr.dir/
 /*_tcl.html
 
+# Raw demo video (the README uses the animated WebP made from it)
+/docs/demo.mp4
+
 # draw.io backups
 *.bkp
 

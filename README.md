@@ -1,5 +1,7 @@
 # 0 to 99 Counter on a 2-Digit 7-Segment Display
 
+![The counter running on the TD112 board: it goes from 93 to 99, wraps to 00 and is then reset](docs/counter_demo.webp)
+
 The goal of this project is to describe, in VHDL, a simple counter from 0 to 99 and show the count on a 2-digit 7-segment display. The specifications are simple:
 
 1. The counter counts up from 0 to 99.
